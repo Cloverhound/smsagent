@@ -2,6 +2,8 @@ importPackage(java.net);
 importPackage(java.io);
 importPackage(java.util);
 
+var FIREBASE_INSTANCE = "xxx";
+
 function post(urlString, body) {
     var url = new URL(urlString);
     log("Opening connection.");
@@ -35,7 +37,7 @@ function receivedSms() {
     
     var bodyJson = JSON.stringify(body);
     
-    var firebaseUrl = "https://textcc.firebaseio.com/clients/test/" + currentCall.callerID + "/messages.json";
+    var firebaseUrl = "https://" + FIREBASE_INSTANCE + ".firebaseio.com/clients/test/" + currentCall.callerID + "/messages.json";
     
     log("Posting.");
     var result = post(firebaseUrl, bodyJson);

@@ -61,7 +61,8 @@ function receivedSms() {
  */
 function sendSms() {
 
-    // 'numberToDial' is passed in via the HTTP request from the Finesse gadget.
+    // 'msg' and 'numberToDial' are passed in via the HTTP request from the Finesse gadget.
+    // Pass these to the Tropo API to send an SMS.
     message(msg, {
         to:"+" + numberToDial,
         network:"SMS"

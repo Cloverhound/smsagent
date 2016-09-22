@@ -2,6 +2,7 @@ importPackage(java.net);
 importPackage(java.io);
 importPackage(java.util);
 
+// Replace xxx without your own Firebase instance.
 var FIREBASE_INSTANCE = "xxx";
 
 /**

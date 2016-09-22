@@ -4,6 +4,12 @@ importPackage(java.util);
 
 var FIREBASE_INSTANCE = "xxx";
 
+/**
+ * Convenience method for POSTing to a URL.
+ * Uses underlying Java libraries, adapted from various Java examples.
+ * @param {string} urlString The URL to POST to.
+ * @param {string} body The data to POST.
+ */
 function post(urlString, body) {
     var url = new URL(urlString);
     log("Opening connection.");
@@ -27,6 +33,9 @@ function post(urlString, body) {
     return [responseCode, result];  
 }
 
+/**
+ * Handle a new incoming SMS.
+ */
 function receivedSms() {
 
     var body = {
@@ -45,6 +54,9 @@ function receivedSms() {
     log("HTTP body: " + result[1]);
 }
 
+/**
+ * Use Tropo API to send an SMS.
+ */
 function sendSms() {
 
     message(msg, {
@@ -55,7 +67,9 @@ function sendSms() {
     log("Sent " + msg + " to " + numbertoDial);
 }
 
-
+ // If the 'currentCall' variable is set, that means this session was triggered
+ // by an inbound SMS. Otherwise this was triggered by an API call, which in our
+ // case means we want to send an SMS.
 if (currentCall) {
     receivedSms();
 } else {

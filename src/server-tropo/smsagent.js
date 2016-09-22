@@ -9,6 +9,7 @@ var FIREBASE_INSTANCE = "xxx";
  * Uses underlying Java libraries, adapted from various Java examples.
  * @param {string} urlString The URL to POST to.
  * @param {string} body The data to POST.
+ * @return {Array} The HTTP response code and response body.
  */
 function post(urlString, body) {
     var url = new URL(urlString);

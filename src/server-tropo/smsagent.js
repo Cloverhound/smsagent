@@ -61,6 +61,7 @@ function receivedSms() {
  */
 function sendSms() {
 
+    // 'numberToDial' is passed in via the HTTP request from the Finesse gadget.
     message(msg, {
         to:"+" + numberToDial,
         network:"SMS"
